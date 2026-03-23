@@ -7,7 +7,7 @@ import ContatoSection from './sections/ContatoSection'
 
 export default function App() {
   return (
-    <div className="page">
+    <div>
       <Header />
 
       <main id="topo">

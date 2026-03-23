@@ -5,9 +5,8 @@ import CloseIcon from '@mui/icons-material/Close'
 import ButtonLink from './ButtonLink'
 
 const links = [
-  { href: '#sobre', label: 'Sobre' },
-  { href: '#projetos', label: 'Projetos' },
-  { href: '#habilidades', label: 'Habilidades' },
+  { href: '#sobre', label: 'Sobre Mim' },
+  { href: '#projetos', label: 'Meu Portfólio' },
   { href: '#contato', label: 'Contato' },
 ]
 

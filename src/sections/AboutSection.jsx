@@ -1,16 +1,36 @@
-import { Box, Container, Grid, Typography } from '@mui/material'
+import { Box, Container, Grid, Typography, Card, CardMedia } from '@mui/material'
 import ButtonLink from '../components/ButtonLink'
 
 export default function SobreSection() {
   return (
-    <section id="sobre" className="section" style={{ backgroundColor: '#332d27'}}>
+    <section id="sobre" className="section">
       <Container sx={{ height: '100vh'}}>
-        <Grid container spacing={2} sx={{ maxWidth: '1200px', margin: '0 auto', paddingY: 4, alignItems: 'center', height: '100%' }}>
-          <Grid item xs={12} md={4} size={4}>
-            
-
+        <Grid container spacing={0} sx={{ maxWidth: '1200px', margin: '0 auto', paddingBottom: 4, alignItems: 'center', height: '100%' }}>
+          <Grid item xs={12} md={4} size={4} sx={{ height: '100%' }}>
+            <Card
+              aria-label="Foto do ator"
+              sx={{
+                height: '100%',
+                width: '100%',
+                background: 'black',
+                boxShadow: 'none',
+                borderRadius: '0'
+              }}
+            >
+              <CardMedia
+                component="img"
+                image="/public/images/image-about-me.jpg"
+                alt="Foto em destaque do ator"
+                loading="lazy"
+                sx={{
+                  width: 'auto',
+                  height: '100%',
+                  objectFit: 'cover',
+                }}
+              />
+            </Card>
           </Grid>
-          <Grid item xs={12} md={8} size={8}>
+          <Grid item xs={12} md={8} size={8} sx={{ backgroundColor: '#181513', height: '100%', alignItems: 'center', display: 'flex', flexDirection: 'column', justifyContent: 'center', padding: 4 }}>
             <Typography
               variant="h4"
               component="h2"

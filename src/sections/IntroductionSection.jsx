@@ -7,22 +7,9 @@ import WhatsAppIcon from '@mui/icons-material/WhatsApp'
 import ButtonLink from '../components/ButtonLink'
 
 export default function IntroductionSection() {
-  const sectionRef = useRef(null)
-  const [setIsVisible] = useState(false)
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => setIsVisible(entry.isIntersecting),
-      { threshold: 0.1 }
-    )
-
-    if (sectionRef.current) observer.observe(sectionRef.current)
-    return () => observer.disconnect()
-  }, [])
   return (
     <section
-      className="hero heroEnter heroBackground"
-      ref={sectionRef}
+      className="introduction-section"
     >
       <Container sx={{ height: '100vh'}}>
         <Grid container spacing={0} sx={{ height: '100%', alignItems: "center", position: 'relative', zIndex: 1 }}>
@@ -55,7 +42,7 @@ export default function IntroductionSection() {
             </Box>
           </Grid>
 
-          <Grid size={{ xs: 12, md: 6 }} sx={{ height: '100%', display: { xs: 'none', md: 'flex' }}}>
+          <Grid size={{ xs: 12, md: 6 }} sx={{ height: '100%', alignItems: 'end',display: { xs: 'none', md: 'flex' }}}>
             <Card
               aria-label="Foto do ator"
               sx={{
