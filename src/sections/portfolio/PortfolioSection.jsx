@@ -1,10 +1,7 @@
-import { useState } from "react";
+import { useMemo, useState } from "react";
 import {
   Container,
   Grid,
-  Card,
-  CardMedia,
-  CardContent,
   Typography,
   Chip,
   Box,
@@ -12,10 +9,8 @@ import {
   IconButton,
   Button,
   Paper,
-  useMediaQuery,
   useTheme,
   Fade,
-  Grow,
   Rating,
   Divider,
   Stack,
@@ -23,8 +18,6 @@ import {
   Toolbar,
   ImageList,
   ImageListItem,
-  ImageListItemBar,
-  Skeleton,
 } from "@mui/material";
 import {
   Close as CloseIcon,
@@ -34,215 +27,15 @@ import {
   Build as BuildIcon,
   CalendarToday as CalendarIcon,
   Business as BusinessIcon,
-  ZoomIn as ZoomInIcon,
 } from "@mui/icons-material";
-import { motion, AnimatePresence } from "framer-motion";
-
-// Dados de exemplo do portfólio
-const portfolioItems = [
-  {
-    id: 1,
-    title: "E-commerce Platform",
-    coverImage: "https://picsum.photos/id/1/800/600",
-    description: "Plataforma completa de e-commerce com carrinho, checkout e integração com Stripe. Sistema de gestão de estoque em tempo real e painel administrativo.",
-    technologies: ["React", "Node.js", "Stripe", "Tailwind", "MongoDB"],
-    images: [
-      "https://picsum.photos/id/1/800/600",
-      "https://picsum.photos/id/2/800/600",
-      "https://picsum.photos/id/3/800/600",
-      "https://picsum.photos/id/4/800/600",
-      "https://picsum.photos/id/5/800/600",
-    ],
-    client: "TechStore Inc",
-    year: "2024",
-    link: "https://exemplo.com",
-    category: "E-commerce",
-    rating: 5,
-  },
-  {
-    id: 2,
-    title: "Delivery App",
-    coverImage: "https://picsum.photos/id/2/800/600",
-    description: "Aplicativo de delivery com rastreamento em tempo real, avaliação de entregadores e sistema de pagamentos integrado.",
-    technologies: ["React Native", "Firebase", "Google Maps", "Node.js"],
-    images: [
-      "https://picsum.photos/id/6/800/600",
-      "https://picsum.photos/id/7/800/600",
-      "https://picsum.photos/id/8/800/600",
-    ],
-    client: "Food Delivery Co",
-    year: "2024",
-    link: "https://exemplo.com",
-    category: "Mobile",
-    rating: 4,
-  },
-  {
-    id: 3,
-    title: "Analytics Dashboard",
-    coverImage: "https://picsum.photos/id/3/800/600",
-    description: "Dashboard interativo com gráficos em tempo real, exportação de relatórios e sistema de alertas personalizáveis.",
-    technologies: ["Next.js", "Chart.js", "Prisma", "PostgreSQL", "Tailwind"],
-    images: [
-      "https://picsum.photos/id/9/800/600",
-      "https://picsum.photos/id/10/800/600",
-      "https://picsum.photos/id/11/800/600",
-    ],
-    client: "Data Analytics Corp",
-    year: "2023",
-    link: "https://exemplo.com",
-    category: "Dashboard",
-    rating: 5,
-  },
-  {
-    id: 4,
-    title: "Landing Page",
-    coverImage: "https://picsum.photos/id/4/800/600",
-    description: "Landing page moderna com animações, formulário de captura e integração com Mailchimp.",
-    technologies: ["Vue.js", "GSAP", "Tailwind", "Mailchimp API"],
-    images: [
-      "https://picsum.photos/id/12/800/600",
-      "https://picsum.photos/id/13/800/600",
-      "https://picsum.photos/id/14/800/600",
-    ],
-    client: "Creative Agency",
-    year: "2024",
-    link: "https://exemplo.com",
-    category: "Marketing",
-    rating: 4,
-  },
-  {
-    id: 5,
-    title: "ERP System",
-    coverImage: "https://picsum.photos/id/5/800/600",
-    description: "Sistema ERP completo para gestão de estoque, vendas, funcionários e relatórios financeiros.",
-    technologies: ["Angular", "Django", "Docker", "Redis", "PostgreSQL"],
-    images: [
-      "https://picsum.photos/id/15/800/600",
-      "https://picsum.photos/id/16/800/600",
-      "https://picsum.photos/id/17/800/600",
-    ],
-    client: "Logistics Brasil",
-    year: "2023",
-    link: "https://exemplo.com",
-    category: "Enterprise",
-    rating: 5,
-  },
-  {
-    id: 6,
-    title: "Finance App",
-    coverImage: "https://picsum.photos/id/6/800/600",
-    description: "Aplicativo para controle financeiro pessoal com categorização automática, gráficos e metas de economia.",
-    technologies: ["Flutter", "Node.js", "MongoDB", "Express"],
-    images: [
-      "https://picsum.photos/id/18/800/600",
-      "https://picsum.photos/id/19/800/600",
-      "https://picsum.photos/id/20/800/600",
-    ],
-    client: "Fintech Startup",
-    year: "2024",
-    link: "https://exemplo.com",
-    category: "Finance",
-    rating: 4,
-  },
-];
-
-// Componente do Card Individual
-function PortfolioCard({ item, onClick, index }) {
-  const theme = useTheme();
-
-  return (
-    <motion.div
-      initial={{ opacity: 0, y: 50 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: "-50px" }}
-      transition={{ duration: 0.5, delay: index * 0.1 }}
-      whileHover={{ y: -8 }}
-    >
-      <Card
-        sx={{
-          height: "100%",
-          display: "flex",
-          flexDirection: "column",
-          cursor: "pointer",
-          transition: "all 0.3s ease",
-          "&:hover": {
-            boxShadow: theme.shadows[10],
-          },
-        }}
-        onClick={() => onClick(item)}
-      >
-        <Box sx={{ position: "relative", overflow: "hidden" }}>
-          <CardMedia
-            component="img"
-            height="240"
-            image={item.coverImage}
-            alt={item.title}
-            sx={{
-              transition: "transform 0.5s ease",
-              "&:hover": {
-                transform: "scale(1.05)",
-              },
-            }}
-          />
-          <Box
-            sx={{
-              position: "absolute",
-              top: 12,
-              right: 12,
-              bgcolor: "rgba(0,0,0,0.7)",
-              borderRadius: "20px",
-              px: 1.5,
-              py: 0.5,
-            }}
-          >
-            <Typography variant="caption" sx={{ color: "white" }}>
-              {item.category}
-            </Typography>
-          </Box>
-        </Box>
-
-        <CardContent sx={{ flexGrow: 1 }}>
-          <Typography variant="h6" component="h3" gutterBottom fontWeight="bold">
-            {item.title}
-          </Typography>
-          
-          <Stack direction="row" spacing={0.5} sx={{ mb: 1.5 }}>
-            <Rating value={item.rating} size="small" readOnly precision={0.5} />
-          </Stack>
-
-          <Typography variant="body2" color="text.secondary" sx={{ mb: 2, minHeight: 60 }}>
-            {item.description.substring(0, 100)}...
-          </Typography>
-
-          <Box sx={{ display: "flex", flexWrap: "wrap", gap: 0.5 }}>
-            {item.technologies.slice(0, 3).map((tech, idx) => (
-              <Chip
-                key={idx}
-                label={tech}
-                size="small"
-                variant="outlined"
-                sx={{ fontSize: "0.7rem" }}
-              />
-            ))}
-            {item.technologies.length > 3 && (
-              <Chip
-                label={`+${item.technologies.length - 3}`}
-                size="small"
-                variant="outlined"
-                sx={{ fontSize: "0.7rem" }}
-              />
-            )}
-          </Box>
-        </CardContent>
-      </Card>
-    </motion.div>
-  );
-}
+import { portfolioItems } from "./items"
+import { getCategories, filterByCategory } from "./utils"
+import PortfolioCard from "../../components/portfolio/PortfolioCard"
+import CategoryFilter from "../../components/portfolio/PortfolioFilter"
 
 // Componente do Modal de Detalhes
 function PortfolioModal({ item, open, onClose }) {
   const theme = useTheme();
-  const fullScreen = useMediaQuery(theme.breakpoints.down("md"));
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
   const nextImage = () => {
@@ -462,45 +255,20 @@ function PortfolioModal({ item, open, onClose }) {
 }
 
 // Componente de Filtro por Categoria
-function CategoryFilter({ categories, selectedCategory, onSelectCategory }) {
-  return (
-    <Box sx={{ mb: 4, display: "flex", flexWrap: "wrap", gap: 1, justifyContent: "center" }}>
-      <Chip
-        label="Todos"
-        onClick={() => onSelectCategory("all")}
-        color={selectedCategory === "all" ? "primary" : "default"}
-        variant={selectedCategory === "all" ? "filled" : "outlined"}
-        sx={{ fontWeight: "medium" }}
-      />
-      {categories.map((category) => (
-        <Chip
-          key={category}
-          label={category}
-          onClick={() => onSelectCategory(category)}
-          color={selectedCategory === category ? "primary" : "default"}
-          variant={selectedCategory === category ? "filled" : "outlined"}
-          sx={{ fontWeight: "medium" }}
-        />
-      ))}
-    </Box>
-  );
-}
+
 
 // Componente Principal
 export default function PortfolioGallery() {
-  const theme = useTheme();
   const [selectedItem, setSelectedItem] = useState(null);
   const [selectedCategory, setSelectedCategory] = useState("all");
-  const [loading, setLoading] = useState(false);
 
   // Extrair categorias únicas
-  const categories = [...new Set(portfolioItems.map((item) => item.category))];
+  const categories = getCategories(portfolioItems);
 
   // Filtrar itens por categoria
-  const filteredItems =
-    selectedCategory === "all"
-      ? portfolioItems
-      : portfolioItems.filter((item) => item.category === selectedCategory);
+  const filteredItems = useMemo(() => {
+    return filterByCategory(portfolioItems, selectedCategory);
+  }, [selectedCategory]);
 
   const handleOpenModal = (item) => {
     setSelectedItem(item);
