@@ -1,7 +1,7 @@
 import { Box, Container, Grid, Typography, Card, CardMedia } from '@mui/material'
 import ButtonLink from '../components/ButtonLink'
 
-export default function SobreSection() {
+export default function AboutSection() {
   return (
     <section id="sobre" className="section">
       <Container sx={{ height: '100vh'}}>
