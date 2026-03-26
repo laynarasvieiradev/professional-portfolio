@@ -6,7 +6,7 @@ export default function CategoryFilter({ categories, selectedCategory, onSelectC
       <Chip
         label="Todos"
         onClick={() => onSelectCategory("all")}
-        color={selectedCategory === "all" ? "primary" : "default"}
+        color={selectedCategory === "all" ? "accent" : "default"}
         variant={selectedCategory === "all" ? "filled" : "outlined"}
         sx={{ fontWeight: "medium" }}
       />
@@ -15,7 +15,7 @@ export default function CategoryFilter({ categories, selectedCategory, onSelectC
           key={category}
           label={category}
           onClick={() => onSelectCategory(category)}
-          color={selectedCategory === category ? "primary" : "default"}
+          color={selectedCategory === category ? "accent" : "default"}
           variant={selectedCategory === category ? "filled" : "outlined"}
           sx={{ fontWeight: "medium" }}
         />

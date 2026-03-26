@@ -25,40 +25,32 @@ export default function PortfolioSection() {
   };
 
   return (
-    <Box sx={{ minHeight: "100vh", bgcolor: "grey.50" }}>
-      {/* Header */}
-      <AppBar position="relative" color="transparent" elevation={0}>
-        <Toolbar sx={{ justifyContent: "center", py: 2 }}>
-          <Box sx={{ textAlign: "center" }}>
-            <Typography variant="h4" component="h1" fontWeight="bold" gutterBottom>
+    <section id="portfolio" className="section">
+      <Container>
+        <Grid container spacing={0} sx={{ maxWidth: '1200px', margin: '0 auto', alignItems: 'center', height: '100%' }}>
+          <Grid size={12}>
+            <Typography variant="h4" component="h1" fontWeight="bold" gutterBottom textAlign="center" sx={{ marginBottom: 4 }}>
               Meu Portfólio
             </Typography>
-          </Box>
-        </Toolbar>
-      </AppBar>
-
-      <Container maxWidth="xl" sx={{ py: 4 }}>
-        {/* Filtros */}
-        <CategoryFilter
-          categories={categories}
-          selectedCategory={selectedCategory}
-          onSelectCategory={setSelectedCategory}
-        />
-
-        {/* Grid de projetos */}
-        <Grid container spacing={3} sx={{ display: 'flex'}}>
-          {filteredItems.map((item, index) => (
-            <Grid item xs={12} sm={6} md={4} lg={4} key={item.id}>
-              <PortfolioCard
-                item={item}
-                index={index}
-                onClick={handleOpenModal}
-              />
-            </Grid>
-          ))}
+      
+            <CategoryFilter
+              categories={categories}
+              selectedCategory={selectedCategory}
+              onSelectCategory={setSelectedCategory}
+            />
+          </Grid>
+          <Grid container spacing={2} sx={{ display: 'flex'}}>
+            {filteredItems.map((item, index) => (
+              <Grid item size={{ xs: 12, sm: 4, md: 3 }} key={item.id}>
+                <PortfolioCard
+                  item={item}
+                  index={index}
+                  onClick={handleOpenModal}
+                />
+              </Grid>
+            ))}
+          </Grid>
         </Grid>
-
-        {/* Modal de detalhes */}
         {selectedItem && (
           <PortfolioModal
             item={selectedItem}
@@ -67,6 +59,6 @@ export default function PortfolioSection() {
           />
         )}
       </Container>
-    </Box>
+    </section>
   );
 }

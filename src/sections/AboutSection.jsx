@@ -5,7 +5,16 @@ export default function AboutSection() {
   return (
     <section id="sobre" className="section">
       <Container sx={{ height: '100vh'}}>
-        <Grid container spacing={0} sx={{ maxWidth: '1200px', margin: '0 auto', paddingBottom: 4, alignItems: 'center', height: '100%' }}>
+        <Grid 
+          container 
+          spacing={0} 
+          sx={{ 
+            maxWidth: '1200px', 
+            margin: '0 auto', 
+            paddingBottom: 4, 
+            alignItems: 'center', 
+            height: '100%',
+          }}>
           <Grid item xs={12} md={4} size={4} sx={{ height: '100%' }}>
             <Card
               aria-label="Foto do ator"
@@ -14,7 +23,10 @@ export default function AboutSection() {
                 width: '100%',
                 background: 'black',
                 boxShadow: 'none',
-                borderRadius: '0'
+                borderTopRightRadius: '0',
+                borderBottomRightRadius: '0',
+                borderTopLeftRadius: '5px',
+                borderBottomLeftRadius: '5px',
               }}
             >
               <CardMedia
@@ -30,7 +42,22 @@ export default function AboutSection() {
               />
             </Card>
           </Grid>
-          <Grid item xs={12} md={8} size={8} sx={{ backgroundColor: '#181513', height: '100%', alignItems: 'center', display: 'flex', flexDirection: 'column', justifyContent: 'center', padding: 4 }}>
+          <Grid 
+            item 
+            xs={12} 
+            md={8} 
+            size={8} 
+            sx={{ 
+              backgroundColor: '#181513', 
+              height: '100%', 
+              alignItems: 'center', 
+              display: 'flex', 
+              flexDirection: 'column', 
+              justifyContent: 'center', 
+              padding: 4,
+              borderTopRightRadius: '5px',
+              borderBottomRightRadius: '5px', 
+            }}>
             <Typography
               variant="h4"
               component="h2"
