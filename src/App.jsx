@@ -4,13 +4,18 @@ import IntroductionSection from './sections/IntroductionSection'
 import AboutSection from './sections/AboutSection'
 import PortfolioSection from './sections/portfolio/PortfolioSection'
 import ContatoSection from './sections/ContatoSection'
+import { ThemeProvider } from '@mui/material/styles'
+import { CssBaseline } from '@mui/material'
+import theme from './theme'
 
 export default function App() {
   return (
-    <div>
+    <ThemeProvider theme={theme}>
+      <CssBaseline />
+
       <Header />
 
-      <main id="topo">
+      <main>
         <IntroductionSection />
         <AboutSection />
         <PortfolioSection />
@@ -18,7 +23,7 @@ export default function App() {
       </main>
 
       <Footer />
-    </div>
+    </ThemeProvider>
   )
 }
 
