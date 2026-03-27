@@ -30,24 +30,6 @@
   color: #8a0015;
 }
 
-.nav {
-  display: flex;
-  gap: 14px;
-  align-items: center;
-  flex-wrap: wrap;
-  justify-content: flex-end;
-}
-
-.navLink {
-  padding: 8px 10px;
-  color: var(--text)!important;
-  font-weight: 500!important;
-}
-
-.navLink:hover {
-  color: var(--accent)!important;
-}
-
 .headerMain {
   position: fixed !important;
   top: 0;

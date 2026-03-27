@@ -42,11 +42,27 @@ export default function Header() {
               />
             </Box>
 
-            {/* Desktop Navigation */}
-            <Box sx={{ display: { xs: 'none', md: 'flex' }, flex: 1, justifyContent: 'center' }}>
+            <Box 
+              sx={{ 
+                display: { xs: 'none', md: 'flex' }, 
+                flex: 1, 
+                justifyContent: 'center' 
+              }}>
               <nav className="nav" aria-label="Navegação principal">
                 {links.map((l) => (
-                  <MuiLink key={l.href} className="navLink" href={l.href} underline="none">
+                  <MuiLink 
+                    key={l.href}
+                    href={l.href} 
+                    underline="none"
+                    sx={{
+                      mx: 2,
+                      color: 'text.primary',
+                      '&:hover': {
+                        color: 'primary.main',
+                        transition: 'color 0.5s ease-in-out',
+                      },
+                    }}
+                  >
                     {l.label}
                   </MuiLink>
                 ))}
