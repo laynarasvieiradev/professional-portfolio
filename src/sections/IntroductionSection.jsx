@@ -1,4 +1,3 @@
-import { useEffect, useRef, useState } from 'react'
 import { Box, Card, CardMedia, Container, Grid, IconButton, Typography } from '@mui/material'
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown'
 import InstagramIcon from '@mui/icons-material/Instagram'
@@ -11,25 +10,71 @@ export default function IntroductionSection() {
     <section
       className="introduction-section"
     >
-      <Container sx={{ height: '100vh'}}>
-        <Grid container spacing={0} sx={{ height: '100%', alignItems: "center", position: 'relative', zIndex: 1 }}>
-          <Grid size={{ xs: 12, md: 6 }} sx={{ height: '100%', display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
+      <Container 
+        sx={{ 
+          height: '100vh', 
+          position: 'relative',
+          '&::before': {
+            content: '""',
+            position: 'absolute',
+            top: 0,
+            left: 0,
+            right: 0,
+            bottom: 0,
+            backgroundImage: { xs: 'url(/public/images/main-image.png)', sm: 'url(/public/images/main-image.png)', md: 'none' }, 
+            backgroundSize: 'cover',
+            backgroundRepeat: 'no-repeat', 
+            backgroundPositionY: 'bottom',
+            backgroundPositionX: 'center',
+            opacity: 0.5,
+            zIndex: -1,
+          },
+        }}
+      >
+        <Grid 
+          container 
+          spacing={0} 
+          sx={{ 
+            height: '100%', 
+            alignItems: "center", 
+            position: 'relative', 
+            zIndex: 1 
+          }}>
+          <Grid 
+            size={{ xs: 12, md: 6 }} 
+            sx={{ 
+              height: '100%', 
+              display: 'flex', 
+              flexDirection: 'column', 
+              justifyContent: 'center' 
+            }}>
             <Typography
               component="h1"
               sx={{
                 textTransform: 'uppercase',
                 fontWeight: 700,
                 fontSize: { xs: '2.6rem', md: '3.4rem' },
-                color: '#332d27',
+                lineHeight: 1.2,
+                color: 'text.primary',
+                textAlign: { xs: 'center', md: 'left' }
               }}
             >
               Manoel Gomes Silva Bitencourt
             </Typography>
-            <Typography sx={{ color: '#332d27', mb: 2 }}>
+            <Typography 
+              sx={{ 
+                color: 'text.primary', 
+                mb: 2,
+                textAlign: { xs: 'center', md: 'left' }
+              }}>
               Ator • Cantor • Performer
             </Typography>
 
-            <Box display="flex" gap={1} aria-label="Redes sociais do ator">
+            <Box 
+              display="flex" 
+              gap={1} 
+              justifyContent={{ xs: 'center', md: 'flex-start' }}
+            >
               <ButtonLink href="#" variant="primary" ariaLabel="Instagram do ator">
                 <InstagramIcon fontSize="medium" />
               </ButtonLink>
@@ -42,7 +87,10 @@ export default function IntroductionSection() {
             </Box>
           </Grid>
 
-          <Grid size={{ xs: 12, md: 6 }} sx={{ height: '100%', alignItems: 'end',display: { xs: 'none', md: 'flex' }}}>
+          <Grid 
+            size={{ xs: 12, md: 6 }} 
+            sx={{ height: '100%', alignItems: 'end', display: { xs: 'none', md: 'flex' }}}
+          >
             <Card
               aria-label="Foto do ator"
               sx={{
