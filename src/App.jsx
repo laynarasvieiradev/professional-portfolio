@@ -6,9 +6,18 @@ import PortfolioSection from './sections/portfolio/PortfolioSection'
 import ContatoSection from './sections/ContatoSection'
 import { ThemeProvider } from '@mui/material/styles'
 import { CssBaseline } from '@mui/material'
+import { useRef } from 'react'
 import theme from './theme'
 
 export default function App() {
+  const aboutSectionRef = useRef(null)
+  const scrollToAbout = () => {
+    aboutSectionRef.current?.scrollIntoView({ 
+      behavior: 'smooth',
+      block: 'start' 
+    })
+  }
+
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
@@ -16,8 +25,8 @@ export default function App() {
       <Header />
 
       <main>
-        <IntroductionSection />
-        <AboutSection />
+        <IntroductionSection onScrollToAbout={scrollToAbout} />
+        <AboutSection ref={aboutSectionRef} />
         <PortfolioSection />
         <ContatoSection />
       </main>

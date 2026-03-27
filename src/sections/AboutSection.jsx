@@ -1,9 +1,10 @@
 import { Box, Container, Grid, Typography, Card, CardMedia } from '@mui/material'
 import ButtonLink from '../components/ButtonLink'
+import { forwardRef } from 'react'
 
-export default function AboutSection() {
+const AboutSection = forwardRef((props, ref) => {
   return (
-    <section id="sobre" className="section">
+    <section id="about" ref={ref} className="about-section">
       <Container sx={{ height: '100vh'}}>
         <Grid 
           container 
@@ -88,5 +89,9 @@ export default function AboutSection() {
       </Container>
     </section>
   )
-}
+})
+
+AboutSection.displayName = 'AboutSection'
+
+export default AboutSection
 
