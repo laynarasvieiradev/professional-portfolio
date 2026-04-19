@@ -5,7 +5,10 @@ import { forwardRef } from 'react'
 const AboutSection = forwardRef((props, ref) => {
   return (
     <section id="about" ref={ref} className="about-section">
-      <Container sx={{ height: '100vh'}}>
+      <Container 
+        sx={{ 
+          height: {md: '100vh'},
+        }}>
         <Grid 
           container 
           spacing={0} 
@@ -16,7 +19,15 @@ const AboutSection = forwardRef((props, ref) => {
             alignItems: 'center', 
             height: '100%',
           }}>
-          <Grid item xs={12} md={4} size={4} sx={{ height: '100%' }}>
+          <Grid 
+            item 
+            size={{ 
+              md: 4 , 
+              xs: 12
+            }} 
+            sx={{ 
+              height: '100%' 
+            }}>
             <Card
               aria-label="Foto do ator"
               sx={{
@@ -45,9 +56,10 @@ const AboutSection = forwardRef((props, ref) => {
           </Grid>
           <Grid 
             item 
-            xs={12} 
-            md={8} 
-            size={8} 
+            size={{ 
+              md: 8 , 
+              xs: 12
+            }} 
             sx={{ 
               backgroundColor: '#181513', 
               height: '100%', 
