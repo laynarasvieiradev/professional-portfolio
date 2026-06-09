@@ -7,7 +7,7 @@ const AboutSection = forwardRef((props, ref) => {
     <section id="about" ref={ref} className="about-section">
       <Container 
         sx={{ 
-          height: {md: '100vh'},
+          height: {md: '30vh', lg: '100vh'},
         }}>
         <Grid 
           container 
@@ -16,13 +16,14 @@ const AboutSection = forwardRef((props, ref) => {
             maxWidth: '1200px', 
             margin: '0 auto',
             paddingBottom: 4, 
-            alignItems: 'center', 
+            alignItems: 'stretch', 
             height: '100%',
+            flexDirection: { xs: 'column-reverse', md: 'row' }            
           }}>
           <Grid 
             item 
-            size={{ 
-              md: 4 , 
+            size={{
+              md: 4, 
               xs: 12
             }} 
             sx={{ 
@@ -31,14 +32,14 @@ const AboutSection = forwardRef((props, ref) => {
             <Card
               aria-label="Foto do ator"
               sx={{
-                height: '100%',
-                width: '100%',
                 background: 'black',
                 boxShadow: 'none',
                 borderTopRightRadius: '0',
                 borderBottomRightRadius: '0',
-                borderTopLeftRadius: '5px',
+                borderTopLeftRadius: { xs: 0, md:'5px'},
                 borderBottomLeftRadius: '5px',
+                borderBottomRightRadius: { xs: '5px', md: '0' },
+                height: '100%',
               }}
             >
               <CardMedia
@@ -46,18 +47,15 @@ const AboutSection = forwardRef((props, ref) => {
                 image="/public/images/image-about-me.jpg"
                 alt="Foto em destaque do ator"
                 loading="lazy"
-                sx={{
-                  width: 'auto',
-                  height: '100%',
-                  objectFit: 'cover',
-                }}
+                objectFit="cover"
+                height="100%"
               />
             </Card>
           </Grid>
           <Grid 
             item 
             size={{ 
-              md: 8 , 
+              md: 8, 
               xs: 12
             }} 
             sx={{ 
@@ -69,7 +67,8 @@ const AboutSection = forwardRef((props, ref) => {
               justifyContent: 'center', 
               padding: 4,
               borderTopRightRadius: '5px',
-              borderBottomRightRadius: '5px', 
+              borderBottomRightRadius: {xs: 0, md: '5px'}, 
+              borderTopLeftRadius: { xs: '5px', md: 0},
             }}>
             <Typography
               variant="h4"
