@@ -2,6 +2,7 @@ import { useTheme } from "@mui/material"
 import { Box, Card, CardContent, Typography } from "@mui/material"
 import { motion } from "framer-motion"
 import ButtonLink from "../ButtonLink";
+import getImageUrl from "./imageUrl";
 
 export default function PortfolioCard({ item, onClick, index }) {
   const theme = useTheme();
@@ -21,7 +22,7 @@ export default function PortfolioCard({ item, onClick, index }) {
           flexDirection: "column",
           cursor: "pointer",
           borderRadius: "5px",
-          backgroundImage: `url(${item.coverImage})`,
+          backgroundImage: `url(${getImageUrl(item.coverImage)})`,
           backgroundSize: "cover",
           backgroundPosition: "center", 
         }}
@@ -60,7 +61,7 @@ export default function PortfolioCard({ item, onClick, index }) {
             justifyContent: "center",
             overflow: "hidden",
           }}>
-          <Typography variant="h6" component="h3" gutterBottom fontWeight="bold" sx={{ color: "white", textShadow: '0px 1px 4px #332d27' }}>
+          <Typography variant="h6" component="h3" gutterBottom fontWeight="bold" sx={{ color: "white", textShadow: '0px 1px 4px #332d27', textAlign: "center" }}>
             {item.title}
           </Typography>
           <ButtonLink href="#contato" ariaLabel="Vamos conversar">

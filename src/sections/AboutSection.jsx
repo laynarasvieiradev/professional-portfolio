@@ -14,7 +14,7 @@ const AboutSection = forwardRef((props, ref) => {
           spacing={0} 
           sx={{ 
             maxWidth: '1200px', 
-            margin: '0 auto', 
+            margin: '0 auto',
             paddingBottom: 4, 
             alignItems: 'center', 
             height: '100%',

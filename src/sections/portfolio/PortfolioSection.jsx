@@ -39,9 +39,17 @@ export default function PortfolioSection() {
               onSelectCategory={setSelectedCategory}
             />
           </Grid>
-          <Grid container spacing={2} sx={{ display: 'flex'}}>
+          <Grid 
+            container 
+            spacing={2} 
+            sx={{ display: 'flex', width: '100%'}}
+          >
             {filteredItems.map((item, index) => (
-              <Grid item size={{ xs: 12, sm: 4, md: 3 }} key={item.id}>
+              <Grid 
+                item 
+                size={{ xs: 12, sm: 4, md: 3 }} 
+                key={item.id}
+              >
                 <PortfolioCard
                   item={item}
                   index={index}

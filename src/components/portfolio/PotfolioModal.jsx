@@ -9,6 +9,7 @@ import {
   Business as BusinessIcon,
 } from "@mui/icons-material";
 import { useState } from "react";
+import getImageUrl from "./imageUrl";
 
 export default function PortfolioModal({ item, open, onClose }) {
   const theme = useTheme();
@@ -84,7 +85,7 @@ export default function PortfolioModal({ item, open, onClose }) {
                 }}
               >
                 <img
-                  src={item.images[currentImageIndex]}
+                  src={getImageUrl(item.images[currentImageIndex])}
                   alt={`${item.title} - ${currentImageIndex + 1}`}
                   style={{
                     width: "100%",
@@ -147,7 +148,7 @@ export default function PortfolioModal({ item, open, onClose }) {
                       onClick={() => setCurrentImageIndex(idx)}
                     >
                       <img
-                        src={img}
+                        src={getImageUrl(img)}
                         alt={`Miniatura ${idx + 1}`}
                         style={{ width: "100%", height: "auto", aspectRatio: "1/1", objectFit: "cover" }}
                       />
