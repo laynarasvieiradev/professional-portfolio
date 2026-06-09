@@ -55,19 +55,18 @@ export default function PortfolioModal({ item, open, onClose }) {
               top: 0,
               zIndex: 10,
               bgcolor: "background.paper",
-              borderBottom: 1,
-              borderColor: "divider",
-              p: 2,
+              paddingInline: 3,
+              paddingBlock: 1,
               display: "flex",
               justifyContent: "space-between",
               alignItems: "center",
             }}
           >
             <Typography variant="h6" component="h2">
-              {item.title}
+              {item.title} - {item.year}
             </Typography>
             <IconButton onClick={onClose} size="small">
-              <CloseIcon />
+              <CloseIcon color="primary"/>
             </IconButton>
           </Box>
 
@@ -133,7 +132,7 @@ export default function PortfolioModal({ item, open, onClose }) {
               {item.images.length > 1 && (
                 <ImageList
                   sx={{ width: "100%", height: "auto" }}
-                  cols={Math.min(item.images.length, 6)}
+                  cols={6}
                   gap={8}
                 >
                   {item.images.map((img, idx) => (
@@ -164,27 +163,6 @@ export default function PortfolioModal({ item, open, onClose }) {
                 <Typography variant="body1" paragraph>
                   {item.description}
                 </Typography>
-                
-                <Divider sx={{ my: 2 }} />
-                
-              
-              </Grid>
-
-              <Grid item xs={12} md={4}>
-                <Paper variant="outlined" sx={{ p: 2 }}>
-                  <Typography variant="subtitle1" fontWeight="bold" gutterBottom>
-                    Informações do Projeto
-                  </Typography>
-                  
-                  <Stack spacing={1.5}>
-                    <Box sx={{ display: "flex", alignItems: "center", gap: 1 }}>
-                      <CalendarIcon fontSize="small" color="action" />
-                      <Typography variant="body2">
-                        <strong>Ano:</strong> {item.year}
-                      </Typography>
-                    </Box>                                      
-                  </Stack>
-                </Paper>
               </Grid>
             </Grid>
           </Box>
