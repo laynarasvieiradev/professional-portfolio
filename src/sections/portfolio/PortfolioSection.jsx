@@ -22,7 +22,7 @@ export default function PortfolioSection() {
 
   const handleCloseModal = () => {
     setSelectedItem(null);
-  }
+  };
   
   return (
     <section id="projects" className="section">
