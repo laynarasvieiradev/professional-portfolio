@@ -91,7 +91,7 @@ const AboutSection = forwardRef((props, ref) => {
               Ao longo da minha carreira, participei de várias produções que exploram temas diversos, do drama à comédia. Meu objetivo é colaborar com projetos que provoquem reflexão e ampliem a representatividade nas telas e nos palcos.
             </Typography>
             <Box mt={2}>
-              <ButtonLink href="#contato" ariaLabel="Vamos conversar" type="white">
+              <ButtonLink href="#contact" ariaLabel="Vamos conversar" type="white">
                 Vamos conversar
               </ButtonLink>
             </Box>

@@ -1,5 +1,8 @@
 import { Box, Card, CardContent, Container, Grid, Link as MuiLink, Typography } from '@mui/material'
 import ButtonLink from '../components/ButtonLink'
+import EmailIcon from '@mui/icons-material/Email'
+import InstagramIcon from '@mui/icons-material/Instagram'
+import WhatsAppIcon from '@mui/icons-material/WhatsApp'
 
 export default function ContactSection() {
   return (
@@ -9,7 +12,7 @@ export default function ContactSection() {
       <Container 
         maxWidth="lg"
         sx={{
-          paddingY: { sm: 2, md: 4 },
+          paddingY: { xs: 2, md: 4 },
         }}
       >
         <Grid 
@@ -19,8 +22,8 @@ export default function ContactSection() {
             backgroundColor: 'primary.main',
             display: 'flex',
             flexWrap: 'wrap',
-            paddingY: { sm: 2, md: 4 },
-            paddingX: { sm: 2, md: 4 },
+            paddingY: { xs: 2, md: 4 },
+            paddingX: { xs: 2, md: 4 },
             borderRadius: 1,
           }}
         >
@@ -63,16 +66,13 @@ export default function ContactSection() {
                 href="mailto:seuemail@exemplo.com"
                 type="white"
               >
-                Enviar e-mail
+                <EmailIcon />
               </ButtonLink>
               <ButtonLink href="#" type="white">
-                LinkedIn
+                <InstagramIcon />
               </ButtonLink>
               <ButtonLink href="#" type="white">
-                Instagram
-              </ButtonLink>
-              <ButtonLink href="#" type="white">
-                Whatsapp
+                <WhatsAppIcon />
               </ButtonLink>
             </Box>
           </Grid>
