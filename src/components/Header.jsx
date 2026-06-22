@@ -5,9 +5,9 @@ import CloseIcon from '@mui/icons-material/Close'
 import ButtonLink from './ButtonLink'
 
 const links = [
-  { href: '#sobre', label: 'Sobre Mim' },
-  { href: '#projetos', label: 'Meu Portfólio' },
-  { href: '#contato', label: 'Contato' },
+  { href: '#about', label: 'Sobre Mim' },
+  { href: '#projects', label: 'Meu Portfólio' },
+  { href: '#contact', label: 'Contato' },
 ]
 
 export default function Header() {
@@ -70,7 +70,7 @@ export default function Header() {
             </Box>
 
             <Box sx={{ display: { xs: 'none', md: 'flex' } }}>
-              <ButtonLink href="#contato" ariaLabel="Vamos conversar">
+              <ButtonLink href="#contact" ariaLabel="Vamos conversar">
                 Vamos conversar
               </ButtonLink>
             </Box>

@@ -9,6 +9,7 @@ import ButtonLink from '../components/ButtonLink'
 export default function IntroductionSection({ onScrollToAbout }) {
   return (
     <section
+      id="introduction"
       className="introduction-section"
     >
       <motion.div

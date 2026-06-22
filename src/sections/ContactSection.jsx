@@ -4,7 +4,7 @@ import ButtonLink from '../components/ButtonLink'
 export default function ContactSection() {
   return (
     <section 
-      id="contato" 
+      id="contact" 
     >
       <Container 
         maxWidth="lg"

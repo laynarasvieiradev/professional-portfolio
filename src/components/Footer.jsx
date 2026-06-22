@@ -15,7 +15,7 @@ export default function Footer() {
             © {new Date().getFullYear()} Laynara S. Vieira
           </Typography>
           <MuiLink
-            href="#topo"
+            href="#introduction"
             underline="hover"
             sx={{ color: 'primary.main', fontWeight: 600 }}
           >

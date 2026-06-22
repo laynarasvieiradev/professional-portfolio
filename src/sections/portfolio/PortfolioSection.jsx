@@ -25,7 +25,7 @@ export default function PortfolioSection() {
   };
 
   return (
-    <section id="portfolio" className="section">
+    <section id="projects" className="section">
       <Container>
         <Grid container spacing={0} sx={{ maxWidth: '1200px', margin: '0 auto', alignItems: 'center', height: '100%' }}>
           <Grid size={12}>
