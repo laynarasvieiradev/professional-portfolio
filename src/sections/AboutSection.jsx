@@ -1,6 +1,7 @@
 import { Box, Container, Grid, Typography, Card, CardMedia } from '@mui/material'
 import ButtonLink from '../components/ButtonLink'
 import { forwardRef } from 'react'
+import aboutMeImage from '../assets/images/image-about-me.jpg'
 
 const AboutSection = forwardRef((props, ref) => {
   return (
@@ -44,7 +45,7 @@ const AboutSection = forwardRef((props, ref) => {
             >
               <CardMedia
                 component="img"
-                image="/public/images/image-about-me.jpg"
+                image={aboutMeImage}
                 alt="Foto em destaque do ator"
                 loading="lazy"
                 objectFit="cover"

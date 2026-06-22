@@ -5,6 +5,7 @@ import InstagramIcon from '@mui/icons-material/Instagram'
 import FacebookIcon from '@mui/icons-material/Facebook'
 import WhatsAppIcon from '@mui/icons-material/WhatsApp'
 import ButtonLink from '../components/ButtonLink'
+import mainImage from '../assets/images/main-image.png'
 
 export default function IntroductionSection({ onScrollToAbout }) {
   return (
@@ -28,7 +29,7 @@ export default function IntroductionSection({ onScrollToAbout }) {
               left: 0,
               right: 0,
               bottom: 0,
-              backgroundImage: { xs: 'url(/public/images/main-image.png)', sm: 'url(/public/images/main-image.png)', md: 'none' }, 
+              backgroundImage: { xs: `url(${mainImage})`, sm: `url(${mainImage})`, md: 'none' }, 
               backgroundSize: 'cover',
               backgroundRepeat: 'no-repeat', 
               backgroundPositionY: 'bottom',
@@ -109,7 +110,7 @@ export default function IntroductionSection({ onScrollToAbout }) {
               >
                 <CardMedia
                   component="img"
-                  image="/public/images/main-image.png"
+                  image={mainImage}
                   alt="Foto em destaque do ator"
                   loading="lazy"
                   sx={{

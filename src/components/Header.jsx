@@ -3,6 +3,7 @@ import { Box, Container, Drawer, IconButton, Link as MuiLink } from '@mui/materi
 import MenuIcon from '@mui/icons-material/Menu'
 import CloseIcon from '@mui/icons-material/Close'
 import ButtonLink from './ButtonLink'
+import logo from '../assets/images/logosite.png'
 
 const links = [
   { href: '#about', label: 'Sobre Mim' },
@@ -36,7 +37,7 @@ export default function Header() {
           <Box display="flex" justifyContent="space-between" alignItems="center" py={2} width="100%">
             <Box display="flex" alignItems="center" gap={0}>
               <img
-                src="/public/images/logosite.png"
+                src={logo}
                 alt="Logo do site"
                 style={{ height: '35px', width: 'auto' }}
               />
