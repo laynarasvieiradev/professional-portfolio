@@ -3,7 +3,7 @@ import Footer from './components/Footer'
 import IntroductionSection from './sections/IntroductionSection'
 import AboutSection from './sections/AboutSection'
 import PortfolioSection from './sections/portfolio/PortfolioSection'
-import ContatoSection from './sections/ContatoSection'
+import ContactSection from './sections/ContactSection'
 import { ThemeProvider } from '@mui/material/styles'
 import { CssBaseline } from '@mui/material'
 import { useRef } from 'react'
@@ -28,7 +28,7 @@ export default function App() {
         <IntroductionSection onScrollToAbout={scrollToAbout} />
         <AboutSection ref={aboutSectionRef} />
         <PortfolioSection />
-        <ContatoSection />
+        <ContactSection />
       </main>
 
       <Footer />
