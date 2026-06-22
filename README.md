@@ -11,3 +11,5 @@ npm install
 npm run dev
 ```
 
+## Veja o site funcionando
+https://laynarasvieiradev.github.io/professional-portfolio/
