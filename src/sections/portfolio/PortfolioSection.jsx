@@ -29,7 +29,7 @@ export default function PortfolioSection() {
       <Container>
         <Grid container spacing={0} sx={{ maxWidth: '1200px', margin: '0 auto', alignItems: 'center', height: '100%' }}>
           <Grid size={12}>
-            <Typography variant="h4" component="h1" fontWeight="bold" gutterBottom textAlign="center" sx={{ marginBottom: 4 }}>
+            <Typography variant="h4" component="h1" fontWeight="bold" gutterBottom sx={{ marginBottom: 4, textAlign: "center" }}>
               Meu Portfólio
             </Typography>
       

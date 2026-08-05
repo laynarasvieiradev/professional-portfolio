@@ -6,8 +6,12 @@ import FacebookIcon from '@mui/icons-material/Facebook'
 import WhatsAppIcon from '@mui/icons-material/WhatsApp'
 import ButtonLink from '../components/ButtonLink'
 import mainImage from '../assets/images/main-image.png'
+import getGeneralInfo from '../api/general'
 
 export default function IntroductionSection({ onScrollToAbout }) {
+  
+  // const values = getGeneralInfo()
+  // console.log(values);
   return (
     <section
       id="introduction"
@@ -79,9 +83,11 @@ export default function IntroductionSection({ onScrollToAbout }) {
               </Typography>
 
               <Box 
-                display="flex" 
+                sx={{
+                  display: "flex" ,
+                  justifyContent: { xs: 'center', md: 'flex-start' }
+                }}
                 gap={1} 
-                justifyContent={{ xs: 'center', md: 'flex-start' }}
               >
                 <ButtonLink href="#" variant="primary" ariaLabel="Instagram do ator">
                   <InstagramIcon fontSize="medium" />
@@ -123,7 +129,15 @@ export default function IntroductionSection({ onScrollToAbout }) {
             </Grid>
           </Grid>
 
-          <Box display="flex" justifyContent="center" sx={{ position: 'absolute', bottom: '0', left: '50%', transform: 'translateX(-50%)', zIndex: 10 }}>
+          <Box sx={{ 
+              display: "flex", 
+              justifyContent: "center",
+              position: 'absolute', 
+              bottom: '0', 
+              left: '50%', 
+              transform: 'translateX(-50%)', 
+              zIndex: 10 
+            }}>
             <IconButton              
               onClick={onScrollToAbout}
               aria-label="Ir para a seção Sobre"

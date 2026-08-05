@@ -48,8 +48,10 @@ const AboutSection = forwardRef((props, ref) => {
                 image={aboutMeImage}
                 alt="Foto em destaque do ator"
                 loading="lazy"
-                objectFit="cover"
-                height="100%"
+                sx={{
+                  objectFit: "cover",
+                  height: "100%"
+                }}
               />
             </Card>
           </Grid>

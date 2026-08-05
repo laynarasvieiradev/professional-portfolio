@@ -34,8 +34,18 @@ export default function Header() {
         className={isScrolled ? 'headerScrolled headerMain' : 'headerMain'}
       >
         <Container maxWidth="lg">
-          <Box display="flex" justifyContent="space-between" alignItems="center" py={2} width="100%">
-            <Box display="flex" alignItems="center" gap={0}>
+          <Box sx={{ 
+                display: "flex",
+                justifyContent: "space-between", 
+                alignItems: "center",
+                paddingY: 2,
+                width: "100%"
+              }}  
+            >
+            <Box sx={{
+                display: "flex",
+                alignItems: "center"
+              }} gap={0}>
               <img
                 src={logo}
                 alt="Logo do site"
