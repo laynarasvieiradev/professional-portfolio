@@ -1,6 +1,6 @@
 import { Button } from '@mui/material'
 
-export default function ButtonLink({ href, children, type = 'regular', ariaLabel }) {
+export default function ButtonLink({ href, children, type = 'regular', ariaLabel, target = '_self' }) {
   return (
     <Button
       component="a"
@@ -9,6 +9,7 @@ export default function ButtonLink({ href, children, type = 'regular', ariaLabel
       variant="outlined"
       color="inherit"
       className={ type === 'white' ? 'btn-white' : 'btn-regular'}
+      target={target}
       sx={{
         minWidth: 'auto',
         textTransform: 'none',

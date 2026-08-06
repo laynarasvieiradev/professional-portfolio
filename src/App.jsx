@@ -50,6 +50,7 @@ export default function App() {
     })
   }
 
+  const logoUrl = generalInfo[0]
   return (
      <motion.div
       initial={{ opacity: 0, y: 30 }}
@@ -62,7 +63,7 @@ export default function App() {
       <ThemeProvider theme={theme}>
         <CssBaseline />
 
-        <Header />
+        <Header logoUrl={logoUrl} />
 
         <main>
           <IntroductionSection 

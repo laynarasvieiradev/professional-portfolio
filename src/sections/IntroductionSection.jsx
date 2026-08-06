@@ -5,10 +5,20 @@ import InstagramIcon from '@mui/icons-material/Instagram'
 import FacebookIcon from '@mui/icons-material/Facebook'
 import WhatsAppIcon from '@mui/icons-material/WhatsApp'
 import ButtonLink from '../components/ButtonLink'
-import mainImage from '../assets/images/main-image.png'
 import getGeneralInfo from '../api/general'
+import getImageUrl from "../components/portfolio/imageUrl"
 
-export default function IntroductionSection({ onScrollToAbout }) {
+export default function IntroductionSection({ data, onScrollToAbout }) {
+  console.log(data)
+  const name = data[1]
+  const specialties = data[2].split(',')
+  const specialtiesFormatted = specialties.join(' • ')
+  const mainImage = data[3]
+  const instagramUrl = data[4]
+  const facebookUrl = data[5]
+  const whats = data[6]
+  const email = data[7]
+  
   return (
     <section
       id="introduction"
@@ -30,7 +40,7 @@ export default function IntroductionSection({ onScrollToAbout }) {
               left: 0,
               right: 0,
               bottom: 0,
-              backgroundImage: { xs: `url(${mainImage})`, sm: `url(${mainImage})`, md: 'none' }, 
+              backgroundImage: { xs: `url(${getImageUrl(mainImage)})`, sm: `url(${getImageUrl(mainImage)})`, md: 'none' }, 
               backgroundSize: 'cover',
               backgroundRepeat: 'no-repeat', 
               backgroundPositionY: 'bottom',
@@ -68,7 +78,7 @@ export default function IntroductionSection({ onScrollToAbout }) {
                   textAlign: { xs: 'center', md: 'left' }
                 }}
               >
-                Manoel Gomes Silva Bitencourt
+               { name }
               </Typography>
               <Typography 
                 sx={{ 
@@ -76,25 +86,31 @@ export default function IntroductionSection({ onScrollToAbout }) {
                   mb: 2,
                   textAlign: { xs: 'center', md: 'left' }
                 }}>
-                Ator • Cantor • Performer
+                {specialtiesFormatted}
               </Typography>
 
               <Box 
                 sx={{
                   display: "flex" ,
-                  justifyContent: { xs: 'center', md: 'flex-start' }
+                  justifyContent: { xs: 'center', md: 'flex-start' },
+                  gap: 1
                 }}
-                gap={1} 
               >
-                <ButtonLink href="#" variant="primary" ariaLabel="Instagram do ator">
-                  <InstagramIcon fontSize="medium" />
-                </ButtonLink>
-                <ButtonLink href="#" variant="secondary" ariaLabel="Facebook do ator">
-                  <FacebookIcon fontSize="medium" />
-                </ButtonLink>
-                <ButtonLink href="#" variant="secondary" ariaLabel="WhatsApp do ator">
-                  <WhatsAppIcon fontSize="medium" />
-                </ButtonLink>
+                {instagramUrl && (
+                  <ButtonLink href={instagramUrl} variant="primary" ariaLabel="Instagram do ator" target="_blank">
+                    <InstagramIcon fontSize="medium" />
+                  </ButtonLink>
+                )}
+                {facebookUrl && (
+                  <ButtonLink href="#" variant="secondary" ariaLabel="Facebook do ator">
+                    <FacebookIcon fontSize="medium" />
+                  </ButtonLink>
+                )}
+                {whats && (
+                  <ButtonLink href={`https://wa.me/55${whats}?text=Ol%C3%A1%2C%20vim%20pelo%20seu%20site%20e%20gostaria%20de%20conversar%20com%20voc%C3%AA.`} variant="secondary" ariaLabel="WhatsApp do ator" target="_blank">
+                    <WhatsAppIcon fontSize="medium" />
+                  </ButtonLink>
+                )}
               </Box>
             </Grid>
 
@@ -113,7 +129,7 @@ export default function IntroductionSection({ onScrollToAbout }) {
               >
                 <CardMedia
                   component="img"
-                  image={mainImage}
+                  image={getImageUrl(mainImage)}
                   alt="Foto em destaque do ator"
                   loading="lazy"
                   sx={{

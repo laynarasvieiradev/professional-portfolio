@@ -43,7 +43,7 @@ html {
 }
 
 .headerScrolled {
-  background-color: rgba(255, 255, 255, 0.64) !important;
+  background-color: #f7f2ec70 !important;
   backdrop-filter: blur(10px);
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
   animation: slideInDown 0.5s ease-in-out;

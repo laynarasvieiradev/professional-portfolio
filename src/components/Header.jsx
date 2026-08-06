@@ -3,7 +3,7 @@ import { Box, Container, Drawer, IconButton, Link as MuiLink } from '@mui/materi
 import MenuIcon from '@mui/icons-material/Menu'
 import CloseIcon from '@mui/icons-material/Close'
 import ButtonLink from './ButtonLink'
-import logo from '../assets/images/logosite.png'
+import getImageUrl from "./portfolio/imageUrl";
 
 const links = [
   { href: '#about', label: 'Sobre Mim' },
@@ -11,9 +11,10 @@ const links = [
   { href: '#contact', label: 'Contato' },
 ]
 
-export default function Header() {
+export default function Header({ logoUrl }) {
   const [isScrolled, setIsScrolled] = useState(false)
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
+  console.log(logoUrl)
 
   useEffect(() => {
     const handleScroll = () => {
@@ -47,7 +48,7 @@ export default function Header() {
                 alignItems: "center"
               }} gap={0}>
               <img
-                src={logo}
+                src={getImageUrl(logoUrl)}
                 alt="Logo do site"
                 style={{ height: '35px', width: 'auto' }}
               />
