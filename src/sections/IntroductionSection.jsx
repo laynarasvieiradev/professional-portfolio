@@ -9,9 +9,6 @@ import mainImage from '../assets/images/main-image.png'
 import getGeneralInfo from '../api/general'
 
 export default function IntroductionSection({ onScrollToAbout }) {
-  
-  // const values = getGeneralInfo()
-  // console.log(values);
   return (
     <section
       id="introduction"
