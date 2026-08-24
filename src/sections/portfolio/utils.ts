@@ -14,7 +14,7 @@ export const filterByCategory = (items: PortfolioItem[], category: string): Port
 
 export const formatArrayitens = (items: []): PortfolioItem[] => {  
   const formatteditems = items.map(item => ({
-    id: Math.floor(Math.random() * 100),
+    id: item[0].toLowerCase().replace(/\s/g, ""),
     title: item[0],
     coverImage: item[1],
     description: item[2],

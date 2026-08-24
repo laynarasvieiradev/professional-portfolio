@@ -4,7 +4,7 @@ import { motion } from "framer-motion"
 import ButtonLink from "../ButtonLink";
 import getImageUrl from "./imageUrl";
 
-export default function PortfolioCard({ item, onClick, index }) {
+export default function PortfolioCard({ itemCard, onClick, index }) {
   const theme = useTheme();
 
   return (
@@ -15,7 +15,7 @@ export default function PortfolioCard({ item, onClick, index }) {
       transition={{ duration: 0.5, delay: index * 0.1 }}
     >
       <Card
-        key={item.id}
+        key={itemCard.id}
         className="card-portfolio"
         sx={{
           height: "300px",
@@ -23,11 +23,11 @@ export default function PortfolioCard({ item, onClick, index }) {
           flexDirection: "column",
           cursor: "pointer",
           borderRadius: "5px",
-          backgroundImage: `url(${getImageUrl(item.coverImage)})`,
+          backgroundImage: `url(${getImageUrl(itemCard.coverImage)})`,
           backgroundSize: "cover",
           backgroundPosition: "center", 
         }}
-        onClick={() => onClick(item)}
+        onClick={() => onClick(itemCard)}
       >
         <Box sx={{ position: "relative" }}>
           <Box
@@ -43,7 +43,7 @@ export default function PortfolioCard({ item, onClick, index }) {
             }}
           >
             <Typography variant="caption" sx={{ color: "#fff" }}>
-              {item.category}
+              {itemCard.category}
             </Typography>
           </Box>
         </Box>
@@ -63,7 +63,7 @@ export default function PortfolioCard({ item, onClick, index }) {
             overflow: "hidden",
           }}>
           <Typography variant="h6" component="h3" gutterBottom fontWeight="bold" sx={{ color: "white", textShadow: '0px 1px 4px #332d27', textAlign: "center" }}>
-            {item.title}
+            {itemCard.title}
           </Typography>
           <ButtonLink href="#contato" ariaLabel="Vamos conversar">
             Ver mais detalhes

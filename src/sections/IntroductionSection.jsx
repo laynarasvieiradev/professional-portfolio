@@ -156,6 +156,7 @@ export default function IntroductionSection({ data }) {
               sx={{
                 color: 'primary.main',
               }}
+              href="#about"
             >
               <KeyboardArrowDownIcon fontSize="large" />
             </IconButton>

@@ -44,30 +44,37 @@ export default function App() {
   }
 
   const logoUrl = generalInfo[0]
+  document.title = generalInfo[1]
+
+  if (logoUrl) {
+    document.querySelector("link[rel='icon']").href = logoUrl
+  }
+  
   return (
-     <motion.div
-      initial={{ opacity: 0, y: 30 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{
-        duration: 0.6,
-        ease: "easeOut",
-      }}
-    >
+    
       <ThemeProvider theme={theme}>
         <CssBaseline />
 
-        <Header logoUrl={logoUrl} />
+        <Header 
+          logoUrl={logoUrl} 
+        />
 
-        <main>
+         <motion.main
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{
+            duration: 0.6,
+            ease: "easeOut",
+          }}
+        >
           <IntroductionSection data={generalInfo} />
           <AboutSection data={generalInfo} />
           <PortfolioSection />
           <ContactSection data={generalInfo} />
-        </main>
+        </motion.main>
 
         <Footer />
       </ThemeProvider>
-    </motion.div>
   )
 }
 

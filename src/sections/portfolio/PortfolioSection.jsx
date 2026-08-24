@@ -34,7 +34,7 @@ export default function PortfolioSection() {
   const handleCloseModal = () => {
     setSelectedItem(null);
   };
-  
+
   return (
     <section id="projects" className="section">
       <Container>
@@ -55,14 +55,13 @@ export default function PortfolioSection() {
             spacing={2} 
             sx={{ display: 'flex', width: '100%'}}
           >
-            {filteredItems.map((item, index) => (
-              <Grid 
-                item 
+            {filteredItems.map((itemList, index) => (
+              <Grid  
                 size={{ xs: 12, sm: 4, md: 3 }} 
-                key={item.id}
+                key={itemList.id}
               >
                 <PortfolioCard
-                  item={item}
+                  itemCard={itemList}
                   index={index}
                   onClick={handleOpenModal}
                 />
@@ -72,7 +71,7 @@ export default function PortfolioSection() {
         </Grid>
         {selectedItem && (
           <PortfolioModal
-            item={selectedItem}
+            selectedItem={selectedItem}
             open={!!selectedItem}
             onClose={handleCloseModal}
           />

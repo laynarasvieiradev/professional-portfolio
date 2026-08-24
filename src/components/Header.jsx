@@ -4,6 +4,7 @@ import MenuIcon from '@mui/icons-material/Menu'
 import CloseIcon from '@mui/icons-material/Close'
 import ButtonLink from './ButtonLink'
 import getImageUrl from "./portfolio/imageUrl";
+import { handleScrollAnchor } from '../sections/utils'
 
 const links = [
   { href: '#about', label: 'Sobre Mim' },
@@ -147,7 +148,7 @@ export default function Header({ logoUrl }) {
             ))}
           </nav>
 
-          <ButtonLink href="#contato" ariaLabel="Vamos conversar">
+          <ButtonLink ariaLabel="Vamos conversar" onClick={(event) => handleScroll(event, "contact")}>
             Vamos conversar
           </ButtonLink>
         </Box>

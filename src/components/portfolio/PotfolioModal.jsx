@@ -11,16 +11,16 @@ import {
 import { useState } from "react";
 import getImageUrl from "./imageUrl";
 
-export default function PortfolioModal({ item, open, onClose }) {
+export default function PortfolioModal({ selectedItem, open, onClose }) {
   const theme = useTheme();
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
   const nextImage = () => {
-    setCurrentImageIndex((prev) => (prev + 1) % item.images.length)
+    setCurrentImageIndex((prev) => (prev + 1) % selectedItem.images.length)
   }
 
   const prevImage = () => {
-    setCurrentImageIndex((prev) => (prev - 1 + item.images.length) % item.images.length)
+    setCurrentImageIndex((prev) => (prev - 1 + selectedItem.images.length) % selectedItem.images.length)
   }
 
   return (
@@ -63,7 +63,7 @@ export default function PortfolioModal({ item, open, onClose }) {
             }}
           >
             <Typography variant="h6" component="h2">
-              {item.title} - {item.year}
+              {selectedItem.title} - {selectedItem.year}
             </Typography>
             <IconButton onClick={onClose} size="small">
               <CloseIcon color="primary"/>
@@ -84,8 +84,8 @@ export default function PortfolioModal({ item, open, onClose }) {
                 }}
               >
                 <img
-                  src={getImageUrl(item.images[currentImageIndex])}
-                  alt={`${item.title} - ${currentImageIndex + 1}`}
+                  src={getImageUrl(selectedItem.images[currentImageIndex])}
+                  alt={`${selectedItem.title} - ${currentImageIndex + 1}`}
                   style={{
                     width: "100%",
                     height: "auto",
@@ -94,7 +94,7 @@ export default function PortfolioModal({ item, open, onClose }) {
                   }}
                 />
                 
-                {item.images.length > 1 && (
+                {selectedItem.images.length > 1 && (
                   <>
                     <IconButton
                       onClick={prevImage}
@@ -129,13 +129,13 @@ export default function PortfolioModal({ item, open, onClose }) {
               </Box>
 
               {/* Miniaturas */}
-              {item.images.length > 1 && (
+              {selectedItem.images.length > 1 && (
                 <ImageList
                   sx={{ width: "100%", height: "auto" }}
                   cols={6}
                   gap={8}
                 >
-                  {item.images.map((img, idx) => (
+                  {selectedItem.images.map((img, idx) => (
                     <ImageListItem
                       key={idx}
                       sx={{
@@ -159,9 +159,9 @@ export default function PortfolioModal({ item, open, onClose }) {
 
             {/* Informações do projeto */}
             <Grid container spacing={3}>
-              <Grid item xs={12} md={8}>
+              <Grid xs={12} md={8}>
                 <Typography variant="body1" paragraph>
-                  {item.description}
+                  {selectedItem.description}
                 </Typography>
               </Grid>
             </Grid>

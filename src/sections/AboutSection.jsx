@@ -23,8 +23,7 @@ export default function AboutSection({ data }) {
             height: '100%',
             flexDirection: { xs: 'column-reverse', md: 'row' }            
           }}>
-          <Grid 
-            item 
+          <Grid  
             size={{
               md: 4, 
               xs: 12
@@ -57,8 +56,7 @@ export default function AboutSection({ data }) {
               />
             </Card>
           </Grid>
-          <Grid 
-            item 
+          <Grid  
             size={{ 
               md: 8, 
               xs: 12

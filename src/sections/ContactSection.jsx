@@ -32,7 +32,7 @@ export default function ContactSection({ data }) {
             borderRadius: 1,
           }}
         >
-          <Grid item size={12}>
+          <Grid size={12}>
             <Typography
               variant="h4"
               component="h2"
@@ -46,7 +46,7 @@ export default function ContactSection({ data }) {
               Contato
             </Typography>
           </Grid>
-          <Grid item 
+          <Grid 
             size={{
               md: 12, 
               xs: 12
@@ -91,7 +91,7 @@ export default function ContactSection({ data }) {
             </Box>
           </Grid>
 
-          {/* <Grid item size={{
+          {/* <Grid size={{
               md: 6, 
               xs: 12
             }}>
