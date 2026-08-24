@@ -8,8 +8,7 @@ import ButtonLink from '../components/ButtonLink'
 import getGeneralInfo from '../api/general'
 import getImageUrl from "../components/portfolio/imageUrl"
 
-export default function IntroductionSection({ data, onScrollToAbout }) {
-  console.log(data)
+export default function IntroductionSection({ data }) {
   const name = data[1]
   const specialties = data[2].split(',')
   const specialtiesFormatted = specialties.join(' • ')
@@ -152,7 +151,6 @@ export default function IntroductionSection({ data, onScrollToAbout }) {
               zIndex: 10 
             }}>
             <IconButton              
-              onClick={onScrollToAbout}
               aria-label="Ir para a seção Sobre"
               className="scrollDownIcon"
               sx={{

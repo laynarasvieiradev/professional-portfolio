@@ -43,13 +43,6 @@ export default function App() {
     return <ErrorPage />
   }
 
-  const scrollToAbout = () => {
-    aboutSectionRef.current?.scrollIntoView({ 
-      behavior: 'smooth',
-      block: 'start' 
-    })
-  }
-
   const logoUrl = generalInfo[0]
   return (
      <motion.div
@@ -67,10 +60,11 @@ export default function App() {
 
         <main>
           <IntroductionSection 
-            onScrollToAbout={scrollToAbout} 
             data={generalInfo}
           />
-          <AboutSection ref={aboutSectionRef} />
+          <AboutSection 
+            data={generalInfo}
+          />
           <PortfolioSection />
           <ContactSection />
         </main>

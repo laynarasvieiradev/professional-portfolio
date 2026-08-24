@@ -1,11 +1,13 @@
 import { Box, Container, Grid, Typography, Card, CardMedia } from '@mui/material'
 import ButtonLink from '../components/ButtonLink'
 import { forwardRef } from 'react'
-import aboutMeImage from '../assets/images/image-about-me.jpg'
+import getImageUrl from "../components/portfolio/imageUrl"
 
-const AboutSection = forwardRef((props, ref) => {
+export default function AboutSection({ data }) {
+  const textAbout = data[9]
+  const imageAbout = data[10]
   return (
-    <section id="about" ref={ref} className="about-section">
+    <section id="about" className="about-section">
       <Container 
         sx={{ 
           height: {md: '30vh', lg: '100vh'},
@@ -45,7 +47,7 @@ const AboutSection = forwardRef((props, ref) => {
             >
               <CardMedia
                 component="img"
-                image={aboutMeImage}
+                image={getImageUrl(imageAbout)}
                 alt="Foto em destaque do ator"
                 loading="lazy"
                 sx={{
@@ -88,10 +90,7 @@ const AboutSection = forwardRef((props, ref) => {
               Sobre mim
             </Typography>
             <Typography variant="body1" sx={{ color: '#fff', marginBottom: 2 }}>
-              Sou um ator apaixonado por contar histórias através das artes cênicas. Com formação em teatro, tenho experiência em diversos projetos, desde peças teatrais até produções audiovisuais. Busco sempre mergulhar profundamente em cada personagem, trazendo autenticidade e emoção às performances.
-            </Typography>
-            <Typography variant="body1" sx={{ color: '#fff', marginBottom: 2 }}>
-              Ao longo da minha carreira, participei de várias produções que exploram temas diversos, do drama à comédia. Meu objetivo é colaborar com projetos que provoquem reflexão e ampliem a representatividade nas telas e nos palcos.
+              {textAbout}
             </Typography>
             <Box mt={2}>
               <ButtonLink href="#contact" ariaLabel="Vamos conversar" type="white">
@@ -103,9 +102,5 @@ const AboutSection = forwardRef((props, ref) => {
       </Container>
     </section>
   )
-})
-
-AboutSection.displayName = 'AboutSection'
-
-export default AboutSection
+}
 
