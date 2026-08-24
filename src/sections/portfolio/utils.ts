@@ -11,3 +11,18 @@ export const filterByCategory = (items: PortfolioItem[], category: string): Port
  if (category === "all") return items
  return items.filter((item) => item.category === category)
 }
+
+export const formatArrayitens = (items: []): PortfolioItem[] => {  
+  const formatteditems = items.map(item => ({
+    id: Math.floor(Math.random() * 100),
+    title: item[0],
+    coverImage: item[1],
+    description: item[2],
+    images: item[3].split(','),
+    videos: item[4].split(','),
+    year: item[5],
+    category: item[6],
+  }))
+
+  return formatteditems
+}

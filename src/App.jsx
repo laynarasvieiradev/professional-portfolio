@@ -59,14 +59,10 @@ export default function App() {
         <Header logoUrl={logoUrl} />
 
         <main>
-          <IntroductionSection 
-            data={generalInfo}
-          />
-          <AboutSection 
-            data={generalInfo}
-          />
+          <IntroductionSection data={generalInfo} />
+          <AboutSection data={generalInfo} />
           <PortfolioSection />
-          <ContactSection />
+          <ContactSection data={generalInfo} />
         </main>
 
         <Footer />

@@ -11,9 +11,11 @@ export default function Footer() {
             justifyContent: 'space-between',
           }}
         >
+          <MuiLink href={`https://wa.me/5548999258167`} target="_blank">
           <Typography variant="body2" sx={{ color: '#332d27' }}>
             © {new Date().getFullYear()} Laynara S. Vieira
           </Typography>
+          </MuiLink>
           <MuiLink
             href="#introduction"
             underline="hover"

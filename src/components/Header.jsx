@@ -14,7 +14,6 @@ const links = [
 export default function Header({ logoUrl }) {
   const [isScrolled, setIsScrolled] = useState(false)
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
-  console.log(logoUrl)
 
   useEffect(() => {
     const handleScroll = () => {

@@ -4,7 +4,12 @@ import EmailIcon from '@mui/icons-material/Email'
 import InstagramIcon from '@mui/icons-material/Instagram'
 import WhatsAppIcon from '@mui/icons-material/WhatsApp'
 
-export default function ContactSection() {
+export default function ContactSection({ data }) {
+  const textContact = data[8]
+  const email = data[7]
+  const instagram = data[4]
+  const whats = data[6]
+  
   return (
     <section 
       id="contact" 
@@ -63,15 +68,24 @@ export default function ContactSection() {
               justifyContent: 'center',
             }}>
               <ButtonLink 
-                href="mailto:seuemail@exemplo.com"
+                href={`mailto:` + email}
                 type="white"
+                target="_blank"
               >
                 <EmailIcon />
               </ButtonLink>
-              <ButtonLink href="#" type="white">
+              <ButtonLink 
+                href={instagram} 
+                type="white" 
+                target="_blank"
+              >
                 <InstagramIcon />
               </ButtonLink>
-              <ButtonLink href="#" type="white">
+              <ButtonLink 
+                href={`https://wa.me/55${whats}?text=Ol%C3%A1%2C%20vim%20pelo%20seu%20site%20e%20gostaria%20de%20conversar%20com%20voc%C3%AA.`} 
+                type="white" 
+                target="_blank"
+              >
                 <WhatsAppIcon />
               </ButtonLink>
             </Box>

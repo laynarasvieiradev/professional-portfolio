@@ -1,20 +1,31 @@
-import { useMemo, useState } from "react";
+import { useMemo, useState,useEffect } from "react";
 import { Container, Grid, Typography, Box, AppBar, Toolbar } from "@mui/material"
-import { portfolioItems } from "./items"
+// import { portfolioItems } from "./items"
 import { getCategories, filterByCategory } from "./utils"
+import useItems from "./useItems"
 import PortfolioCard from "../../components/portfolio/PortfolioCard"
 import CategoryFilter from "../../components/portfolio/PortfolioFilter"
 import PortfolioModal from "../../components/portfolio/PotfolioModal"
 
 export default function PortfolioSection() {
+  const { items, loading, getPortfolioItens } = useItems()
+
   const [selectedItem, setSelectedItem] = useState(null);
   const [selectedCategory, setSelectedCategory] = useState("all");
 
-  const categories = getCategories(portfolioItems);
+  useEffect(() => {
+    getPortfolioItens()
+  }, [])
+
+  const categories = useMemo(() => {
+    if (!items?.length) return []
+    return getCategories(items)
+  }, [items])
 
   const filteredItems = useMemo(() => {
-    return filterByCategory(portfolioItems, selectedCategory);
-  }, [selectedCategory]);
+    if (!items?.length) return []
+    return filterByCategory(items, selectedCategory);
+  }, [items, selectedCategory]);
 
   const handleOpenModal = (item) => {
     setSelectedItem(item);

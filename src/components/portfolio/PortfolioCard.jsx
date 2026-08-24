@@ -15,6 +15,7 @@ export default function PortfolioCard({ item, onClick, index }) {
       transition={{ duration: 0.5, delay: index * 0.1 }}
     >
       <Card
+        key={item.id}
         className="card-portfolio"
         sx={{
           height: "300px",
