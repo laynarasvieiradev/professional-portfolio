@@ -14,7 +14,7 @@ import getImageUrl from "./imageUrl";
 export default function PortfolioModal({ selectedItem, open, onClose }) {
   const theme = useTheme();
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
-
+  
   const nextImage = () => {
     setCurrentImageIndex((prev) => (prev + 1) % selectedItem.images.length)
   }
@@ -92,6 +92,8 @@ export default function PortfolioModal({ selectedItem, open, onClose }) {
                     maxHeight: "500px",
                     objectFit: "contain",
                   }}
+                  loading="lazy"
+                  decoding="async"
                 />
                 
                 {selectedItem.images.length > 1 && (
@@ -150,6 +152,8 @@ export default function PortfolioModal({ selectedItem, open, onClose }) {
                         src={getImageUrl(img)}
                         alt={`Miniatura ${idx + 1}`}
                         style={{ width: "100%", height: "auto", aspectRatio: "1/1", objectFit: "cover" }}
+                        loading="lazy"
+                        decoding="async"
                       />
                     </ImageListItem>
                   ))}
@@ -160,7 +164,7 @@ export default function PortfolioModal({ selectedItem, open, onClose }) {
             {/* Informações do projeto */}
             <Grid container spacing={3}>
               <Grid xs={12} md={8}>
-                <Typography variant="body1" paragraph>
+                <Typography variant="body1">
                   {selectedItem.description}
                 </Typography>
               </Grid>

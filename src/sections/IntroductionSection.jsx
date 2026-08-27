@@ -120,7 +120,7 @@ export default function IntroductionSection({ data }) {
               <Card
                 aria-label="Foto do ator"
                 sx={{
-                  height: '95%',
+                  maxHeight: '95%',
                   width: '100%',
                   background: 'transparent',
                   boxShadow: 'none',

@@ -12,13 +12,23 @@ export const filterByCategory = (items: PortfolioItem[], category: string): Port
  return items.filter((item) => item.category === category)
 }
 
+const filterEmptyItems = (item: []): [] => {
+  let list = item.split(',')
+  
+  if (list[list.length - 1] === ' ') {
+    list.pop()
+  }
+  
+  return list
+}
+
 export const formatArrayitens = (items: []): PortfolioItem[] => {  
   const formatteditems = items.map(item => ({
     id: item[0].toLowerCase().replace(/\s/g, ""),
     title: item[0],
     coverImage: item[1],
     description: item[2],
-    images: item[3].split(','),
+    images: filterEmptyItems(item[3]),
     videos: item[4].split(','),
     year: item[5],
     category: item[6],

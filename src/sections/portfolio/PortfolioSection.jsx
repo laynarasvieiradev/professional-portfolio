@@ -1,7 +1,8 @@
-import { useMemo, useState,useEffect } from "react";
+import { useMemo, useState, useEffect, useRef } from "react";
 import { Container, Grid, Typography, Box, AppBar, Toolbar } from "@mui/material"
 // import { portfolioItems } from "./items"
 import { getCategories, filterByCategory } from "./utils"
+import { useInView } from "framer-motion"
 import useItems from "./useItems"
 import PortfolioCard from "../../components/portfolio/PortfolioCard"
 import CategoryFilter from "../../components/portfolio/PortfolioFilter"
@@ -10,12 +11,20 @@ import PortfolioModal from "../../components/portfolio/PotfolioModal"
 export default function PortfolioSection() {
   const { items, loading, getPortfolioItens } = useItems()
 
-  const [selectedItem, setSelectedItem] = useState(null);
-  const [selectedCategory, setSelectedCategory] = useState("all");
+  const [selectedItem, setSelectedItem] = useState(null)
+  const [selectedCategory, setSelectedCategory] = useState("all")
+  const portfolioRef =  useRef(null)
+  const isInView = useInView(portfolioRef, {
+    once: true,
+    amount: 0.2,
+  })
+
 
   useEffect(() => {
+    if (!isInView) return
+
     getPortfolioItens()
-  }, [])
+  }, [isInView])
 
   const categories = useMemo(() => {
     if (!items?.length) return []
@@ -36,7 +45,7 @@ export default function PortfolioSection() {
   };
 
   return (
-    <section id="projects" className="section">
+    <section id="projects" className="section" ref={portfolioRef}>
       <Container>
         <Grid container spacing={0} sx={{ maxWidth: '1200px', margin: '0 auto', alignItems: 'center', height: '100%' }}>
           <Grid size={12}>

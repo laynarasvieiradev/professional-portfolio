@@ -51,6 +51,8 @@ export default function Header({ logoUrl }) {
                 src={getImageUrl(logoUrl)}
                 alt="Logo do site"
                 style={{ height: '35px', width: 'auto' }}
+                loading="lazy"
+                decoding="async"
               />
             </Box>
 
@@ -148,7 +150,7 @@ export default function Header({ logoUrl }) {
             ))}
           </nav>
 
-          <ButtonLink ariaLabel="Vamos conversar" onClick={(event) => handleScroll(event, "contact")}>
+          <ButtonLink ariaLabel="Vamos conversar" onClick={(event) => handleScrollAnchor(event, "contact")}>
             Vamos conversar
           </ButtonLink>
         </Box>
